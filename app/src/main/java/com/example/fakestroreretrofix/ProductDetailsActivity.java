@@ -1,7 +1,6 @@
 package com.example.fakestroreretrofix;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,15 +8,13 @@ import android.widget.Toast;
 
 import com.example.fakestroreretrofix.databinding.ActivityProductDetailsBinding;
 import com.example.fakestroreretrofix.model.Product;
-import com.example.fakestroreretrofix.network.FakeApi;
-import com.example.fakestroreretrofix.network.FakeApiService;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProductDetailsActivity extends AppCompatActivity {
+public class ProductDetailsActivity extends BaseActivity {
 
     private ActivityProductDetailsBinding binding;
 
@@ -35,7 +32,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
     }
 
     private void fetchProductDetails(int productId) {
-        FakeApiService service = new FakeApi().fakeApiService();
         Call<Product> call = service.getProductDetails(productId);
         call.enqueue(new Callback<Product>() {
             @Override

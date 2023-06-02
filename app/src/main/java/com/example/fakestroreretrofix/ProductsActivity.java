@@ -1,7 +1,6 @@
 package com.example.fakestroreretrofix;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.content.Intent;
@@ -10,8 +9,6 @@ import android.widget.Toast;
 
 import com.example.fakestroreretrofix.databinding.ActivityProductsBinding;
 import com.example.fakestroreretrofix.model.Product;
-import com.example.fakestroreretrofix.network.FakeApi;
-import com.example.fakestroreretrofix.network.FakeApiService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +17,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProductsActivity extends AppCompatActivity implements OnItemActionListenser {
+public class ProductsActivity extends BaseActivity implements OnItemActionListenser {
 
     private  ActivityProductsBinding binding;
     private ProductsAdapter adapter;
@@ -53,7 +50,6 @@ public class ProductsActivity extends AppCompatActivity implements OnItemActionL
     }
 
     private void fetchProducts(String category) {
-        FakeApiService service = new FakeApi().fakeApiService();
         Call<List<Product>> call = service.fetchProducts(category);
         call.enqueue(new Callback<List<Product>>() {
             @Override
