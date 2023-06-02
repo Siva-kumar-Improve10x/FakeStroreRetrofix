@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.fakestroreretrofix.databinding.ActivityProductsBinding;
 import com.example.fakestroreretrofix.productdetails.BaseActivity;
 import com.example.fakestroreretrofix.productdetails.ProductDetailsActivity;
 import com.example.fakestroreretrofix.model.Product;
@@ -20,7 +21,7 @@ import retrofit2.Response;
 
 public class ProductsActivity extends BaseActivity implements OnItemActionListener {
 
-    private  ActivityProductsBinding binding;
+    private ActivityProductsBinding binding;
     private ProductsAdapter adapter;
 
     private  String category;
