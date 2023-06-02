@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.fakestroreretrofix.databinding.ActivityCategoryBinding;
+import com.example.fakestroreretrofix.databinding.ActivityCategoriesBinding;
 import com.example.fakestroreretrofix.network.FakeApi;
 import com.example.fakestroreretrofix.network.FakeApiService;
 
@@ -18,15 +18,15 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CategoryActivity extends AppCompatActivity implements CategoryViewHolder.OnServiceActionListener {
-    ActivityCategoryBinding binding;
-    private ArrayList<String> categories = new ArrayList<>(); //Todo
-    private CategoryAdapter adapter;
+public class CategoriesActivity extends AppCompatActivity implements OnCategoryActionListener {
+    private ActivityCategoriesBinding binding;
+    private ArrayList<String> categories = new ArrayList<>();
+    private CategoriesAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityCategoryBinding.inflate(getLayoutInflater());
+        binding = ActivityCategoriesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().setTitle("Categories");
         getApi();
@@ -36,18 +36,16 @@ public class CategoryActivity extends AppCompatActivity implements CategoryViewH
 
     private void getApi() {
         FakeApiService service = new FakeApi().fakeApiService();
-        Call<List<String>> call = service.fetchCategory();
+        Call<List<String>> call = service.fetchCategories();
         call.enqueue(new Callback<List<String>>() {
             @Override
             public void onResponse(Call<List<String>> call, Response<List<String>> response) {
-                Toast.makeText(CategoryActivity.this, "Success", Toast.LENGTH_SHORT).show();
                 adapter.setData(response.body());
             }
 
             @Override
             public void onFailure(Call<List<String>> call, Throwable t) {
-                Toast.makeText(CategoryActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(CategoriesActivity.this, "Failed", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -55,11 +53,10 @@ public class CategoryActivity extends AppCompatActivity implements CategoryViewH
     private void connectAdapter() {
         binding.categoriesRv.setLayoutManager(new LinearLayoutManager(this));
         binding.categoriesRv.setAdapter(adapter);
-
     }
 
     private void setUpAdapter() {
-        adapter = new CategoryAdapter(categories);
+        adapter = new CategoriesAdapter(categories);
         adapter.setListener(this);
     }
 

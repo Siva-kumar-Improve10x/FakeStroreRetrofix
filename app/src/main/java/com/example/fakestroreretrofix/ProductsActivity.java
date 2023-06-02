@@ -22,22 +22,22 @@ import retrofit2.Response;
 
 public class ProductsActivity extends AppCompatActivity implements OnItemActionListenser {
 
-    ActivityProductsBinding binding;
-    private  ProductAdapter adapter;
+    private  ActivityProductsBinding binding;
+    private ProductsAdapter adapter;
 
-
+    private  String category;
     private  List<Product> products = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityProductsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Intent intent = getIntent();
-        String category = intent.getStringExtra("category");
+        category = intent.getStringExtra("category");
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("products");
         actionBar.setDisplayHomeAsUpEnabled(true);
-        fetchProducts(category);
         setupAdapter();
         connectAdapter();
     }
@@ -45,12 +45,11 @@ public class ProductsActivity extends AppCompatActivity implements OnItemActionL
     private void connectAdapter() {
         binding.productRv.setLayoutManager(new GridLayoutManager(this,2));
         binding.productRv.setAdapter(adapter);
-
     }
 
     private void setupAdapter() {
-        adapter = new ProductAdapter(products);
-        adapter.setonAction(this);
+        adapter = new ProductsAdapter(products);
+        adapter.setOnAction(this);
     }
 
     private void fetchProducts(String category) {
@@ -59,9 +58,7 @@ public class ProductsActivity extends AppCompatActivity implements OnItemActionL
         call.enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
-                Toast.makeText(ProductsActivity.this, "Success", Toast.LENGTH_SHORT).show();
                 adapter.updateData(response.body());
-
             }
 
             @Override
@@ -73,8 +70,14 @@ public class ProductsActivity extends AppCompatActivity implements OnItemActionL
 
     @Override
     public void onClicked(int productId) {
-        Intent intent = new Intent(getApplicationContext(),ProductItemActivity.class);
-        intent.putExtra("category", productId);
+        Intent intent = new Intent(getApplicationContext(), ProductDetailsActivity.class);
+        intent.putExtra("productId", productId);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fetchProducts(category);
     }
 }

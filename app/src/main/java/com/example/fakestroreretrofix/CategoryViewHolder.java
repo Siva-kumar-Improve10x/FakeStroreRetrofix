@@ -10,8 +10,4 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
         super(categoryitemBinding.getRoot());
         binding = categoryitemBinding;
     }
-
-    public static interface OnServiceActionListener {
-        void onItemClicked(String categoryName);
-    }
 }

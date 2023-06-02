@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.fakestroreretrofix.databinding.ActivityProductItemBinding;
+import com.example.fakestroreretrofix.databinding.ActivityProductDetailsBinding;
 import com.example.fakestroreretrofix.model.Product;
 import com.example.fakestroreretrofix.network.FakeApi;
 import com.example.fakestroreretrofix.network.FakeApiService;
@@ -17,19 +17,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProductItemActivity extends AppCompatActivity {
+public class ProductDetailsActivity extends AppCompatActivity {
 
-    ActivityProductItemBinding binding;
+    private ActivityProductDetailsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityProductItemBinding.inflate(getLayoutInflater());
+        binding = ActivityProductDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Intent intent = getIntent();
-        int id = intent.getIntExtra("category", 0);
+        int id = intent.getIntExtra("productId", 0);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("products");
+        actionBar.setTitle("Product Details");
         actionBar.setDisplayHomeAsUpEnabled(true);
         fetchProductDetails(id);
     }
@@ -43,15 +43,15 @@ public class ProductItemActivity extends AppCompatActivity {
                 Product product = response.body();
                 binding.pnameTxt.setText(product.getTitle());
                 binding.pdiscriptionTxt.setText(product.getDescription());
-                binding.prateTxt.setText("₹ "+String.valueOf(product.getPrice()));
-                binding.pcountTxt.setText("("+String.valueOf(product.getRating().getCount())+")");
+                binding.prateTxt.setText("₹ " + String.valueOf(product.getPrice()));
+                binding.pcountTxt.setText("(" + String.valueOf(product.getRating().getCount()) + ")");
                 binding.pratingBarRv.getRating();
                 Picasso.get().load(product.getImage()).into(binding.pimageIv);
             }
 
             @Override
             public void onFailure(Call<Product> call, Throwable t) {
-                Toast.makeText(ProductItemActivity.this, "Govindaa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProductDetailsActivity.this, "Failed To Load", Toast.LENGTH_SHORT).show();
             }
         });
     }

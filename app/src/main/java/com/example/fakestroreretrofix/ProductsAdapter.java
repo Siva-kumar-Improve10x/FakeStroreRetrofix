@@ -12,12 +12,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductViewHolder> {
+public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {
 
     private List<Product> products;
      public OnItemActionListenser itemClickListener;
 
-     void setonAction(OnItemActionListenser itemClickListener){
+     void setOnAction(OnItemActionListenser itemClickListener){
          this.itemClickListener = itemClickListener;
      }
     void updateData(List<Product> products) {
@@ -25,7 +25,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductViewHolder> {
         notifyDataSetChanged();
     }
 
-    public ProductAdapter(List<Product> products) {
+    public ProductsAdapter(List<Product> products) {
         this.products = products;
     }
 
@@ -42,14 +42,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductViewHolder> {
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = products.get(position);
         holder.binding.productnameTxt.setText(product.getTitle());
-        holder.binding.ruppeeTxt.setText("₹"+String.valueOf(product.getPrice()));
+        holder.binding.ruppeeTxt.setText("₹" + String.valueOf(product.getPrice()));
         holder.binding.ratingTxt.setText(String.valueOf(product.getRating().getRate()));
         holder.binding.ratingbarRb.setRating(product.getRating().getRate());
-        holder.binding.countTxt.setText("("+String.valueOf(product.getRating().getCount())+")");
+        holder.binding.countTxt.setText("(" + String.valueOf(product.getRating().getCount()) + ")");
+        Picasso.get().load(product.getImage()).into(holder.binding.productIv);
         holder.binding.getRoot().setOnClickListener(v -> {
             itemClickListener.onClicked(products.get(position).getId());
         });
-        Picasso.get().load(product.getImage()).into(holder.binding.productIv);
     }
 
     @Override

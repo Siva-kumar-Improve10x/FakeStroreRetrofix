@@ -11,9 +11,9 @@ import retrofit2.http.Path;
 public interface FakeApiService {
 
     @GET("products/categories")
-    Call<List<String>> fetchCategory();
+    Call<List<String>> fetchCategories();
 
-    @GET("/products/category/{categoryName}")
+    @GET("products/category/{categoryName}")
     Call<List<Product>> fetchProducts(@Path("categoryName") String categoryName);
 
     @GET("products/{productId}")

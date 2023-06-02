@@ -28,7 +28,7 @@ public class ExampleUnitTest {
     @Test
     public void getCategoryName() throws IOException {
         FakeApiService fakeApiService = new FakeApi().fakeApiService();
-        Call<List<String>> call = fakeApiService.fetchCategory();
+        Call<List<String>> call = fakeApiService.fetchCategories();
         List<String> categories = call.execute().body();
         assertNotNull(categories);
         assertFalse(categories.isEmpty());

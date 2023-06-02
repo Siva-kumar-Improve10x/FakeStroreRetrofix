@@ -11,16 +11,16 @@ import com.example.fakestroreretrofix.databinding.CategoryItemBinding;
 import java.util.List;
 
 
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
-    private List<String> categories; //Todo
+public class CategoriesAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
+    private List<String> categories;
 
-    private CategoryViewHolder.OnServiceActionListener listener;
+    private OnCategoryActionListener listener;
 
-    void setListener(CategoryViewHolder.OnServiceActionListener listener){
+    void setListener(OnCategoryActionListener listener){
         this.listener = listener;
     }
 
-    public CategoryAdapter(List<String> categories){
+    public CategoriesAdapter(List<String> categories){
         this.categories = categories;
     }
 
@@ -28,6 +28,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
         this.categories = categories;
         notifyDataSetChanged();
     }
+
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,7 +40,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-        String category = categories.get(position); //Todo
+        String category = categories.get(position);
         holder.binding.categoriesTxt.setText(category);
         holder.binding.categoriesTxt.setOnClickListener(v -> {
             listener.onItemClicked(category);

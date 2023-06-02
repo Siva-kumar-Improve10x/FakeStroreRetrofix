@@ -9,7 +9,7 @@ import android.os.Handler;
 import com.example.fakestroreretrofix.databinding.ActivitySplashBinding;
 
 public class SplashActivity extends AppCompatActivity {
-    ActivitySplashBinding binding;
+    private ActivitySplashBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         Handler handler = new Handler();
         handler.postDelayed(() -> {
-            Intent intent = new Intent(this, CategoryActivity.class);
+            Intent intent = new Intent(this, CategoriesActivity.class);
             startActivity(intent);
         },2000);
     }
