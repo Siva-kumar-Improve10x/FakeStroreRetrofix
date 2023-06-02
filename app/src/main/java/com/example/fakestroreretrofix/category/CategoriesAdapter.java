@@ -1,4 +1,4 @@
-package com.example.fakestroreretrofix;
+package com.example.fakestroreretrofix.category;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;

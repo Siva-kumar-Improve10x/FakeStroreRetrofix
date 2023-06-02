@@ -1,4 +1,4 @@
-package com.example.fakestroreretrofix;
+package com.example.fakestroreretrofix.products;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -7,7 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.fakestroreretrofix.databinding.ActivityProductsBinding;
+import com.example.fakestroreretrofix.productdetails.BaseActivity;
+import com.example.fakestroreretrofix.productdetails.ProductDetailsActivity;
 import com.example.fakestroreretrofix.model.Product;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProductsActivity extends BaseActivity implements OnItemActionListenser {
+public class ProductsActivity extends BaseActivity implements OnItemActionListener {
 
     private  ActivityProductsBinding binding;
     private ProductsAdapter adapter;

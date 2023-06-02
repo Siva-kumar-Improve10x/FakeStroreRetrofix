@@ -1,4 +1,4 @@
-package com.example.fakestroreretrofix;
+package com.example.fakestroreretrofix.products;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -15,9 +15,9 @@ import java.util.List;
 public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {
 
     private List<Product> products;
-     public OnItemActionListenser itemClickListener;
+     public OnItemActionListener itemClickListener;
 
-     void setOnAction(OnItemActionListenser itemClickListener){
+     void setOnAction(OnItemActionListener itemClickListener){
          this.itemClickListener = itemClickListener;
      }
     void updateData(List<Product> products) {

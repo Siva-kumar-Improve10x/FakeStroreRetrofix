@@ -1,4 +1,4 @@
-package com.example.fakestroreretrofix;
+package com.example.fakestroreretrofix.productdetails;
 
 import android.os.Bundle;
 

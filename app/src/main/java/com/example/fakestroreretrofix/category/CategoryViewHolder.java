@@ -1,4 +1,4 @@
-package com.example.fakestroreretrofix;
+package com.example.fakestroreretrofix.category;
 
 import androidx.recyclerview.widget.RecyclerView;
 

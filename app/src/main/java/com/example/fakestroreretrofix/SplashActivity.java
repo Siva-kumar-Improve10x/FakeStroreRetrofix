@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.fakestroreretrofix.category.CategoriesActivity;
 import com.example.fakestroreretrofix.databinding.ActivitySplashBinding;
 
 public class SplashActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.example.fakestroreretrofix;
+package com.example.fakestroreretrofix.category;
 
 public interface OnCategoryActionListener {
      void onItemClicked(String categoryName);
