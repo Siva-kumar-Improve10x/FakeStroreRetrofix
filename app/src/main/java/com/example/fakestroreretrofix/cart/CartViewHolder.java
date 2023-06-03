@@ -1,4 +1,4 @@
-package com.example.fakestroreretrofix;
+package com.example.fakestroreretrofix.cart;
 
 import androidx.recyclerview.widget.RecyclerView;
 

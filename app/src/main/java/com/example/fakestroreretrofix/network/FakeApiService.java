@@ -1,6 +1,6 @@
 package com.example.fakestroreretrofix.network;
 
-import com.example.fakestroreretrofix.Cart;
+import com.example.fakestroreretrofix.model.Cart;
 import com.example.fakestroreretrofix.model.Product;
 
 import java.util.List;

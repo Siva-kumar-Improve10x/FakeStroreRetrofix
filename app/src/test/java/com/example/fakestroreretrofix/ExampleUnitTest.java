@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+import com.example.fakestroreretrofix.model.Cart;
 import com.example.fakestroreretrofix.model.Product;
 import com.example.fakestroreretrofix.network.FakeApi;
 import com.example.fakestroreretrofix.network.FakeApiService;

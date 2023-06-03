@@ -9,9 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.fakestroreretrofix.CartActivity;
+import com.example.fakestroreretrofix.cart.CartActivity;
 import com.example.fakestroreretrofix.R;
-import com.example.fakestroreretrofix.category.CategoriesActivity;
 import com.example.fakestroreretrofix.network.FakeApi;
 import com.example.fakestroreretrofix.network.FakeApiService;
 

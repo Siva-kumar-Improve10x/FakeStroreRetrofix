@@ -1,4 +1,4 @@
-package com.example.fakestroreretrofix;
+package com.example.fakestroreretrofix.model;
 
 import java.util.List;
 

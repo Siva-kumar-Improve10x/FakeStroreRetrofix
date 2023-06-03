@@ -1,4 +1,4 @@
-package com.example.fakestroreretrofix;
+package com.example.fakestroreretrofix.model;
 
 public class CartProduct {
     private Integer productId;

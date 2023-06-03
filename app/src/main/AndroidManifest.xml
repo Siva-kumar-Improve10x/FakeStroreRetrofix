@@ -14,7 +14,7 @@
         android:theme="@style/Theme.FakeStroreRetrofix"
         tools:targetApi="31">
         <activity
-            android:name=".CartActivity"
+            android:name=".cart.CartActivity"
             android:exported="false" />
         <activity
             android:name=".productdetails.ProductDetailsActivity"

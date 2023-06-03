@@ -1,4 +1,4 @@
-package com.example.fakestroreretrofix;
+package com.example.fakestroreretrofix.cart;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.fakestroreretrofix.databinding.ActivityCartBinding;
+import com.example.fakestroreretrofix.model.Cart;
+import com.example.fakestroreretrofix.model.CartProduct;
 import com.example.fakestroreretrofix.productdetails.BaseActivity;
 
 import java.util.ArrayList;

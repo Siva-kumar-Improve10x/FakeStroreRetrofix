@@ -1,4 +1,4 @@
-package com.example.fakestroreretrofix;
+package com.example.fakestroreretrofix.cart;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fakestroreretrofix.databinding.CartItemBinding;
+import com.example.fakestroreretrofix.model.CartProduct;
 
 import java.util.List;
 
