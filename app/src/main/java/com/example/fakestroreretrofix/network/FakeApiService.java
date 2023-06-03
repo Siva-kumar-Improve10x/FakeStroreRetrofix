@@ -1,5 +1,6 @@
 package com.example.fakestroreretrofix.network;
 
+import com.example.fakestroreretrofix.Cart;
 import com.example.fakestroreretrofix.model.Product;
 
 import java.util.List;
@@ -18,4 +19,7 @@ public interface FakeApiService {
 
     @GET("products/{productId}")
     Call<Product> getProductDetails(@Path("productId") int productId);
+
+    @GET("carts/{cartId}")
+    Call<Cart> getCartItems(@Path("cartId") int CartId);
 }

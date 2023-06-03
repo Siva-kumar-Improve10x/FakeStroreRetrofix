@@ -8,6 +8,7 @@ public class Product {
 
     private String description;
 
+
     public String getDescription() {
         return description;
     }
