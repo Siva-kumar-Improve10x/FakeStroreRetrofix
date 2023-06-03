@@ -44,7 +44,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
             holder.binding.minusBtn.setVisibility(View.GONE);
             holder.binding.countnumTxt.setVisibility(View.GONE);
         } else {
-            holder.binding.countnumTxt.setText(cartProduct.getQuantity()+"");
+            holder.binding.countnumTxt.setText(cartProduct.getQuantity()+"");             
             holder.binding.minusBtn.setVisibility(View.VISIBLE);
             holder.binding.countnumTxt.setVisibility(View.VISIBLE);
         }
