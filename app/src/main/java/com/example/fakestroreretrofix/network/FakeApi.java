@@ -17,7 +17,7 @@ public class FakeApi {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://fakestoreapi.com/")
+                .baseUrl("https://api.escuelajs.co/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
