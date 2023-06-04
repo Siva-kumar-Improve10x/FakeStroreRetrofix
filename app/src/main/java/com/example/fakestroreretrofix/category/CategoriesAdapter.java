@@ -7,12 +7,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fakestroreretrofix.databinding.CategoryItemBinding;
+import com.example.fakestroreretrofix.model.Product;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoryViewHolder> {
-    private List<String> categories;
+    private List<Product> products;
 
     private OnCategoryActionListener listener;
 
@@ -20,12 +22,12 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoryViewHolder> 
         this.listener = listener;
     }
 
-    public CategoriesAdapter(List<String> categories){
-        this.categories = categories;
+    public CategoriesAdapter(List<Product> products){
+        this.products = products;
     }
 
-    void  setData(List<String> categories){
-        this.categories = categories;
+    void  setData(List<Product> categories){
+        this.products = categories;
         notifyDataSetChanged();
     }
 
@@ -40,15 +42,15 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoryViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-        String category = categories.get(position);
-        holder.binding.categoriesTxt.setText(category);
-        holder.binding.categoriesTxt.setOnClickListener(v -> {
-            listener.onItemClicked(category);
-        });
+        Product product = products.get(position);
+        holder.binding.categoriesTxt.setText(product.getName());
+//        holder.binding.categoriesTxt.setOnClickListener(v -> {
+//            listener.onItemClicked(product);
+//        });
     }
 
     @Override
     public int getItemCount() {
-        return categories.size();
+        return products.size();
     }
 }

@@ -24,4 +24,3 @@ public class FakeApi {
         return retrofit.create(FakeApiService.class);
     }
 }
-
