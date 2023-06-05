@@ -36,25 +36,25 @@ public class ExampleUnitTest {
         System.out.println(new Gson().toJson(products));
     }
 
-//    @Test
-//    public void getProducts() throws IOException {
-//        FakeApiService service = new FakeApi().fakeApiService();
-//        Call<List<Product>> call = service.fetchProducts("electronics");
-//        List<Product> products = call.execute().body();
-//        assertNotNull(products);
-//        assertFalse(products.isEmpty());
-//        System.out.println(new Gson().toJson(products));
-//    }
-//
-//    @Test
-//    public void getProductItem() throws IOException {
-//        FakeApiService service =  new FakeApi().fakeApiService();
-//        Call<Product> call = service.getProductDetails(7);
-//        Product product = call.execute().body();
-//        assertNotNull(product);
-//        System.out.println(new Gson().toJson(product));
-//    }
-//
+    @Test
+    public void getProducts() throws IOException {
+        FakeApiService service = new FakeApi().fakeApiService();
+        Call<List<Product>> call = service.fetchProducts(1);
+        List<Product> products = call.execute().body();
+        assertNotNull(products);
+        assertFalse(products.isEmpty());
+        System.out.println(new Gson().toJson(products));
+    }
+
+    @Test
+    public void getProductItem() throws IOException {
+        FakeApiService service =  new FakeApi().fakeApiService();
+        Call<Product> call = service.fetchProductDetails(4);
+        Product product = call.execute().body();
+        assertNotNull(product);
+        System.out.println(new Gson().toJson(product));
+    }
+
 //    @Test
 //    public void getCartItem() throws IOException {
 //        FakeApiService service = new FakeApi().fakeApiService();

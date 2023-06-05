@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.example.fakestroreretrofix.model.Product;
 import com.example.fakestroreretrofix.productdetails.BaseActivity;
 import com.example.fakestroreretrofix.databinding.ActivityCategoriesBinding;
+import com.example.fakestroreretrofix.products.ProductsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CategoriesActivity extends BaseActivity {
+public class CategoriesActivity extends BaseActivity implements OnCategoryActionListener {
     private ActivityCategoriesBinding binding;
     private ArrayList<Product> categories = new ArrayList<>();
     private CategoriesAdapter adapter;
@@ -55,5 +56,13 @@ public class CategoriesActivity extends BaseActivity {
 
     private void setUpAdapter() {
         adapter = new CategoriesAdapter(categories);
+        adapter.setListener(this);
+    }
+
+    @Override
+    public void onItemClicked(Product product) {
+        Intent intent = new Intent(this, ProductsActivity.class);
+        intent.putExtra("product", product);
+        startActivity(intent);
     }
 }
