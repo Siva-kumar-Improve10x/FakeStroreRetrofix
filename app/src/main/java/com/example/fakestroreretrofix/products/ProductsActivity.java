@@ -1,10 +1,12 @@
 package com.example.fakestroreretrofix.products;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.fakestroreretrofix.databinding.ActivityProductsBinding;
@@ -77,5 +79,15 @@ public class ProductsActivity extends BaseActivity implements OnItemActionListen
     protected void onResume() {
         super.onResume();
         fetchProducts(product);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 }

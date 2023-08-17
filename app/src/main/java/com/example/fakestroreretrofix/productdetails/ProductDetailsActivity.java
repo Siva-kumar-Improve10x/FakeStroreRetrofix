@@ -1,9 +1,11 @@
 package com.example.fakestroreretrofix.productdetails;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.fakestroreretrofix.databinding.ActivityProductDetailsBinding;
@@ -50,5 +52,15 @@ public class ProductDetailsActivity extends BaseActivity {
                 Toast.makeText(ProductDetailsActivity.this, "Failed To Load", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 }
